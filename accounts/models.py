@@ -76,6 +76,13 @@ class User(AbstractBaseUser):
     def has_module_perms(self, add_label):
         return True
 
+    def get_role(self):
+        if self.role == 1:
+            userRole = 'Vendor'
+        elif self.role == 2:
+            userRole = 'Customer'
+        return userRole
+
 
 
 class UserProfile(models.Model):

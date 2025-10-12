@@ -1,0 +1,15 @@
+{% autoescape off %}
+
+Hi {{ user.username }},
+
+{% if is_approved %}
+
+Congratulations {{ user.username }}! Your restaurant "{{ vendor.vendor_name }}" has been approved.
+
+{%else%}
+We are sorry {{ user.username }}! Your restaurant "{{ vendor.vendor_name }}" has been disapproved.
+
+{% endif %}
+Thank you for being with us.
+
+{% endautoescape %}

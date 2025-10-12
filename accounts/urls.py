@@ -1,10 +1,11 @@
 
 
 from . import views
-from django.urls import path
+from django.urls import include, path
 
 
 urlpatterns = [
+    path('',views.myAccount, name='myAccount'),
     path('registerUser/', views.registerUser, name='registerUser'),
     path('registerVendor/', views.registerVendor, name='registerVendor'),
 
@@ -19,4 +20,7 @@ urlpatterns = [
     path('forgotPassword/', views.forgot_password, name='forgotPassword'), 
     path('resetPasswordValidate/<uidb64>/<token>/', views.reset_password_validate, name='resetPasswordValidate'),
     path('resetPassword/', views.reset_password, name='resetPassword'), 
+
+
+    path('vendor/', include('vendor.urls')),
 ]

@@ -2,8 +2,10 @@
 from vendor.models import Vendor
 
 def get_vendor(request):
+    vendor = None
     if request.user.is_authenticated:
-        vendor = Vendor.objects.get(user=request.user)
-        return {'vendor': vendor}
-    return {}
-
+        try:
+            vendor = Vendor.objects.get(user=request.user)
+        except Vendor.DoesNotExist:
+            vendor = None
+    return {'vendor': vendor}
